@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>My Orders</title>
+	<style>
+		table {
+			border-collapse: collapse;
+			width: 100%;
+		}
+		th, td {
+			text-align: left;
+			padding: 8px;
+			border-bottom: 1px solid #ddd;
+		}
+		th {
+			background-color: #333;
+			color: #fff;
+		}
+	</style>
+</head>
+<body>
+	<h1>My Orders</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>Order ID</th>
+				<th>Product ID</th>
+				<th>Quantity</th>
+			</tr>
+		</thead>
+		<tbody>
+			{{range .}}
+			<tr>
+				<td>{{.OrderId}}</td>
+				<td><a href="/product/{{.ProductId}}">{{.ProductName}}</a></td>
+				<td>{{.Quantity}}</td>
+			</tr>
+			{{end}}
+		</tbody>
+	</table>
+</body>
+</html>

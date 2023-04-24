@@ -1,0 +1,129 @@
+.container {
+  margin: auto;
+  max-width: 800px;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 36px;
+}
+
+.product-info {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.product-image {
+  width: 40%;
+}
+
+.product-image img {
+  width: 100%;
+}
+
+.product-details {
+  width: 60%;
+  padding-left: 40px;
+}
+
+.seller {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 30px;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.product-description {
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.product-price, .product-rating {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.product-comment {
+  margin-top: 40px;
+}
+
+.product-comment label {
+  font-size: 18px;
+}
+
+.product-comment textarea {
+  width: 100%;
+  height: 150px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding: 10px;
+  font-size: 18px;
+}
+
+.product-comment input[type=number], .product-comment input[type=submit] {
+  font-size: 18px;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.product-comment input[type=submit] {
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.product-comment input[type=submit]:hover {
+  background-color: #fff;
+}
+
+.product-comments {
+  margin-top: 20px;
+  border-top: 1px solid #ccc;
+  padding-top: 20px;
+}
+
+.comment-nickname {
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.comment-message {
+  margin-bottom: 20px;
+  margin-top: 5px;
+}
+
+
+.one-comment{
+  border: 1px solid black;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+button {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #333;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: #555;
+}

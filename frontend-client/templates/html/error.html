@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/error.css">
+    <link rel="icon" href='/static/img/f.png' type="image/png">
+    <title>{{ .StatusCode}} - {{ .StatusText}}</title>
+    
+</head>
+<body>
+    <div id="container">
+        <div class="content">
+            <h2>{{ .StatusCode}}</h2>
+            <h4>Oops! {{ .StatusText}}.</h4>
+            <p>The page doesn't work.</p>
+            {{if eq .StatusCode 400}}
+            <a href="/">Go back home</a>
+            {{else if eq .StatusCode 401}}
+            <a href="/sign-up">Sign up</a>
+            <button><a href="/">Home</a></button>
+            {{else if eq .StatusCode 403}}
+            <p>Access denied. You don't have permission to access this page.</p>
+            <button><a href="/">Home</a></button>
+            
+            {{end}}
+        </div>
+    </div>
+    <button onclick="goBack()">Go Back</button>
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
+
+</body>
+</html>

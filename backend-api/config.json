@@ -1,0 +1,18 @@
+{
+    "database":{
+        "database_name": "postgres",
+        "database_port": 5432,
+        "database_user": "postgres",
+        "database_password": "mysecretpassword",
+        "database_host": "localhost"
+
+
+    },
+    "http":{
+        "port": ":9090",
+        "idle_timeout": 30,
+        "write_timeout": 30,
+        "read_timeout": 30,
+        "address": "http://localhost:9090"
+    }
+}

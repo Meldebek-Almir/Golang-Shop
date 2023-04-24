@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in</title>
+    <link rel="stylesheet" href="../static/auth.css">
+</head>
+<body>
+    <div class="auth">
+        <h1>Sign In</h1>
+        <form action="/sign-in" method="post">
+            <input type="text" id="identity" name="identity" required placeholder="email or username">
+
+            
+            <input type="password" id="password" name="password" required placeholder="password">
+
+            Not Register? <a href="/sign-up">Register</a>
+            <input type="submit" id="submit" value="Submit">
+          
+        </form>
+    </div>
+
+    <a href="/">Home</a>
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
+
+</body>
+</html>

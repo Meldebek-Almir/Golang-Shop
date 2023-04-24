@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Welcome to Candy Shop</title>
+	<link rel="stylesheet" href="../static/welcome.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        {{ if eq .User.Role "seller" }}
+        <li><a href="/create-product">Create Product</a></li>
+        <li><a href="/profile">Profile</a></li>
+        <li><a href="/logout">Logout</a></li>
+        {{ else if eq .User.Role "admin" }}
+        <li><a href="/create-product">Create Product</a></li>
+        <li><a href="/profile">Profile</a></li>
+        <li><a href="/my-orders">My Orders</a></li>
+        <li><a href="/logout">Logout</a></li>
+        {{ else if eq .User.Role ""}}
+        <li><a href="/sign-in">Sign in</a></li>
+        <li><a href="/sign-up">Register</a></li>
+        {{ else if eq .User.Role "client"}}
+        <li><a href="/profile">Profile</a></li>
+        <li><a href="/my-orders">My Orders</a></li>
+        <li><a href="/logout">Logout</a></li>
+        {{ end }}
+        <li>
+          <form class="search-form" action="/search" method="GET">
+            <input type="text" name="query" placeholder="Search for products...">
+            <input type="submit" value="Search"></input>
+          </form>
+        </li>
+       
+      </ul>
+    </nav>         
+  </header>
+  
+
+	<main>
+		<h1>Welcome to Our Shop!</h1>
+    {{ $role := .User.Role }}
+    {{ $user := .User.UserId}}
+  
+    {{ range .Product }}
+      <div class="product">
+        <h2>{{ .ProductName }}</h2>
+        <img src="{{ .ImageUrl }}" alt="{{ .ProductName }}" />
+        <p class="product__price">{{ .Price }}$</p>
+        <a href="/product/{{ .ProductId }}" class="product__details-link">More</a>
+        {{ if eq $role "admin" }}
+         <a href="/delete-product/{{ .ProductId }}">Delete</a>
+        {{ else if eq $user .UserId }}
+        <a href="/delete-product/{{ .ProductId }}">Delete</a>
+      {{ end }} 
+      </div>
+    {{ end }}
+
+	</main>
+  <button><a href="/">Home</a></button>
+  <button onclick="goBack()">Назад</button>
+
+  <script>
+  function goBack() {
+    window.history.back();
+  }
+  </script>
+  
+</body>
+</html>

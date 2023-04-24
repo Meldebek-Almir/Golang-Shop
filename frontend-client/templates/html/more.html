@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Product Details</title>
+  <link rel="stylesheet" href="../static/more.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Product Details</h1>
+    <div class="product-info">
+      <div class="product-image">
+        <img src="{{ .ImageUrl }}" alt="">
+      </div>
+      <div class="product-details">
+        <h2>{{ .ProductName }}</h2>
+        <div class="product-description">
+          <p>{{ .Description }}</p>
+        </div>
+        <div class="product-price">
+          <p>Price: {{ .Price }}$</p>
+        </div>
+        <div class="product-rating">
+          <p>Rating: {{ .Rating }}</p>
+        </div>
+        <div class="product-quantity">
+          <p>Available Quantity: {{ .AvailableQuantity }}</p>
+          <p>Total Quantity Sold: {{ .TotalQuantitySold }}</p>
+        </div>
+        
+        <div class="product-comment">
+          <form action="/rating?id={{.ProductId}}" method="POST">
+            <label for="rating">Rate the product (1-10):</label>
+            <input type="number" id="rating" name="rating" min="1" max="10" required>
+            <input type="submit" value="Submit">
+          </form>
+        </div>
+        {{if eq .AvailableQuantity 0}}
+          <div class="product-comment">
+            SOLD OUT
+          </div>
+        {{else}}
+        <div class="product-comment">
+          <form action="/order?id={{.ProductId}}" method="POST">
+            <label for="order">Buy (1-{{.AvailableQuantity}}):</label>
+            <input type="number" id="order" name="order" min="1" max="{{.AvailableQuantity}}" placeholder="quantity" required>
+            <input type="submit" value="Buy">
+          </form>
+        </div>
+      {{end}}
+        <div class="product-comment">
+          <form action="/comment?id={{.ProductId}}" method="POST">
+            <label for="message">Write a comment:</label>
+            <textarea id="message" name="message" rows="4" cols="50" required></textarea>
+            <br>
+            <input type="submit" value="Submit">
+          </form>
+        </div>
+     
+        <div class="product-comments">
+          <h3>Comments:</h3>
+          {{ range .Comment }}
+            <div class="one-comment">
+              <p class="comment-nickname">{{ .Nickname }}</p>
+              <p class="comment-message">{{ .Message }}</p>
+            </div>
+          {{ end }}
+        </div>
+     
+      </div>
+    </div>
+  </div>
+  <button onclick="goBack()">Назад</button>
+  <button><a href="/">Home</a></button>
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
+
+</body>
+</html>

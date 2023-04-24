@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Profile</title>
+  <link rel="stylesheet" href="./static/profile.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="page-title">Profile</h1>
+    <div class="user-info">
+      <div class="user-details">
+        <div class="user-nickname">Nickname: {{.Nickname}}</div>
+        <div class="user-age">Age: {{ .Age}}</div>
+        <div class="user-gender">Gender: {{ .Gender}}</div>
+        <div class="user-firstname">First Name: {{ .FirstName}}</div>
+        <div class="user-lastname">Last Name: {{ .LastName}}</div>
+        <div class="user-email">Email: {{ .Email}}</div>
+        <div class="user-role">Role: {{ .Role}}</div>
+        <div class="user-created-time">Created Time: {{ .Created}}</div>
+        <div class="user-updated-time">Updated Time: {{ .Updated}} </div>
+      </div>
+    </div>
+  </div>
+  <button onclick="goBack()">Назад</button>
+  <button><a href="/">Home</a></button>
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
+
+</body>
+</html>

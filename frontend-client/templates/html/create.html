@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Product</title>
+    <link rel="stylesheet" href="../static/create.css">
+</head>
+<body>
+    <h1>Add Product</h1>
+    <form method="POST" action="/create-product" enctype="multipart/form-data" >
+        <label for="product_name">Product Name:</label>
+        <input type="text" name="product_name" required><br><br>
+        <label for="description">Description:</label>
+        <textarea name="description" required></textarea><br><br>
+        <label for="price">Price:</label>
+        <input type="number" name="price" min="0" required><br><br>
+        <label for="image_url">Image:</label>
+        <input type="file" name="image_url" required><br><br>
+        <label for="available_quantity">Quantity:</label>
+        <input type="number" name="available_quantity" min="0" required><br><br>
+        <input type="submit" value="Add Product">
+    </form>
+    <button onclick="goBack()">Назад</button>
+    <button><a href="/">Home</a></button>
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
+
+</body>
+</html>
